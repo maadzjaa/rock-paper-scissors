@@ -4,13 +4,15 @@ import './App.css';
 function App() {
 	const [player1, setPlayer1] = useState<string | null>(null);
 	const [player2, setPlayer2] = useState<string | null>(null);
+	const [result, setResult] = useState<string | null>(null);
 
 	function handlePlayerChoice(value: string): void {
 		if (!player1) {
+			setResult(null);
 			setPlayer1(value);
 		} else {
 			setPlayer2(value);
-			console.log(checkResult(player1, value));
+			setResult(checkResult(player1, value));
 			setPlayer1(null);
 			setPlayer2(null);
 		}
@@ -36,19 +38,15 @@ function App() {
 
 	return (
 		<>
-			<h1>
-				{!player1 && 'Pierwszy gracz wybiera!'}
-				{!player2 && player1 && 'Drugi gracz wybiera!'}
-			</h1>
-			<button className='btn paper' onClick={() => handlePlayerChoice('paper')}>
-				Paper
-			</button>
-			<button className='btn scissors' onClick={() => handlePlayerChoice('scissors')}>
-				Scissors
-			</button>
-			<button className='btn rock' onClick={() => handlePlayerChoice('rock')}>
-				Rock
-			</button>
+			<p>{result ? 'Play again :)' : ':)'}</p>
+			<p>
+				{!player1 && 'First player!'}
+				{!player2 && player1 && 'Second player!'}
+			</p>
+			<button onClick={() => handlePlayerChoice('paper')}>Paper</button>
+			<button onClick={() => handlePlayerChoice('scissors')}>Scissors</button>
+			<button onClick={() => handlePlayerChoice('rock')}>Rock</button>
+			<p>{result}</p>
 		</>
 	);
 }
