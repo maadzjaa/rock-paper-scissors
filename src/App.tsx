@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 
 enum Choice {
   Rock = "rock",
@@ -47,9 +46,15 @@ function App() {
         {!player1 && "First player!"}
         {!player2 && player1 && "Second player!"}
       </p>
-      <button onClick={() => handlePlayerChoice(Choice.Paper)}>Paper</button>
-      <button onClick={() => handlePlayerChoice(Choice.Scissors)}>Scissors</button>
-      <button onClick={() => handlePlayerChoice(Choice.Rock)}>Rock</button>
+      <button onClick={() => handlePlayerChoice(Choice.Paper)}>
+        <img src="paper.svg" />
+      </button>
+      <button onClick={() => handlePlayerChoice(Choice.Scissors)}>
+        <img src="scissors.svg" />
+      </button>
+      <button onClick={() => handlePlayerChoice(Choice.Rock)}>
+        <img src="rock.svg" />
+      </button>
       <p>{result}</p>
     </>
   );
