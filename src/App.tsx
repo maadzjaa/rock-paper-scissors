@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 
+enum Choice {
+	Rock = 'rock',
+	Paper = 'paper',
+	Scissors = 'scissors',
+}
+
 function App() {
 	const [player1, setPlayer1] = useState<string | null>(null);
 	const [player2, setPlayer2] = useState<string | null>(null);
@@ -23,13 +29,13 @@ function App() {
 			return 'Draw!';
 		}
 
-		if (player1 === 'paper' && player2 === 'rock') {
+		if (player1 === Choice.Paper && player2 === Choice.Rock) {
 			return 'Player 1 won!';
 		}
-		if (player1 === 'scissors' && player2 === 'paper') {
+		if (player1 === Choice.Scissors && player2 === Choice.Paper) {
 			return 'Player 1 won!';
 		}
-		if (player1 === 'rock' && player2 === 'scissors') {
+		if (player1 === Choice.Rock && player2 === Choice.Scissors) {
 			return 'Player 1 won!';
 		}
 
@@ -43,9 +49,9 @@ function App() {
 				{!player1 && 'First player!'}
 				{!player2 && player1 && 'Second player!'}
 			</p>
-			<button onClick={() => handlePlayerChoice('paper')}>Paper</button>
-			<button onClick={() => handlePlayerChoice('scissors')}>Scissors</button>
-			<button onClick={() => handlePlayerChoice('rock')}>Rock</button>
+			<button onClick={() => handlePlayerChoice(Choice.Paper)}>Paper</button>
+			<button onClick={() => handlePlayerChoice(Choice.Scissors)}>Scissors</button>
+			<button onClick={() => handlePlayerChoice(Choice.Rock)}>Rock</button>
 			<p>{result}</p>
 		</>
 	);
