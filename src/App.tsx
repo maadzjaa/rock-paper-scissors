@@ -1,4 +1,7 @@
 import { useState } from "react";
+import PaperIcon from "./PaperIcon";
+import RockIcon from "./RockIcon";
+import ScissorsIcon from "./ScissorsIcon";
 
 enum Choice {
   Rock = "rock",
@@ -47,13 +50,13 @@ function App() {
         {!player2 && player1 && "Second player!"}
       </p>
       <button onClick={() => handlePlayerChoice(Choice.Paper)}>
-        <img src="paper.svg" />
+        <PaperIcon />
       </button>
       <button onClick={() => handlePlayerChoice(Choice.Scissors)}>
-        <img src="scissors.svg" />
+        <ScissorsIcon />
       </button>
       <button onClick={() => handlePlayerChoice(Choice.Rock)}>
-        <img src="rock.svg" />
+        <RockIcon />
       </button>
       <p>{result}</p>
     </>
