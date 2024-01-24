@@ -24,7 +24,7 @@ function App() {
     }
   }
 
-  function checkResult(player1: string | null, player2: string | null) {
+  function checkResult(player1: string | null, player2: string | null): string {
     if (player1 === player2) {
       return "Draw!";
     }
